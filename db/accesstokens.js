@@ -1,12 +1,11 @@
-var tokens = {};
+var AccessToken = require('./models/accessToken');
+
 
 
 exports.find = function(key, done) {
-  var token = tokens[key];
-  return done(null, token);
+  new AccessToken().findByToken(key, done);
 };
 
 exports.save = function(token, userID, clientID, done) {
-  tokens[token] = { userID: userID, clientID: clientID };
-  return done(null);
+  new AccessToken().store({ token: token, userID: userID, clientID: clientID }, done);
 };

@@ -1,17 +1,14 @@
-var codes = {};
+var AuthorizationCode = require('./models/authorizationCode');
 
 
 exports.find = function(key, done) {
-  var code = codes[key];
-  return done(null, code);
+    new AuthorizationCode().findByCode(key, done);
 };
 
 exports.save = function(code, clientID, redirectURI, userID, done) {
-  codes[code] = { clientID: clientID, redirectURI: redirectURI, userID: userID };
-  return done(null);
+    new AuthorizationCode().store({ code: code ,clientID: clientID, redirectURI: redirectURI, userID: userID }, done);
 };
 
 exports.delete = function(key, done) {
-    delete codes[key];
-    return done(null);
+    new AuthorizationCode().deleteByCode(key, done);
 };
