@@ -1,15 +1,17 @@
 {
-  "name": "htpasswd-oauth2-provider",
+  "name": "login-oauth2-provider",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.x.x",
+    "connect-ensure-login": "0.1.x",
+    "crypto": "0.0.3",
     "ejs": "0.7.x",
+    "express": "2.x.x",
+    "nohm": "^0.9.8",
     "oauth2orize": "0.x.x",
     "passport": "~0.1.12",
-    "passport-local": "0.1.x",
     "passport-http": "0.2.x",
     "passport-http-bearer": "0.2.x",
-    "passport-oauth2-client-password": "0.1.x",
-    "connect-ensure-login": "0.1.x"
+    "passport-local": "0.1.x",
+    "passport-oauth2-client-password": "0.1.x"
   }
 }

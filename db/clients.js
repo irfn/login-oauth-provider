@@ -1,24 +1,14 @@
-var clients = [
-    { id: '1', name: 'Samplr', clientId: 'abc123', clientSecret: 'ssh-secret' }
-];
-
+var Client = require('./models/client');
 
 exports.find = function(id, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.id === id) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
+  return new Client().findById(id, done)
 };
 
 exports.findByClientId = function(clientId, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.clientId === clientId) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
+  return new Client().findByClientId(clientId, done);
+};
+
+
+exports.add = function(name, clientId, clientSecret,  done) {
+  new Client().store({name: name, clientId: clientId, clientSecret: clientSecret}, done);
 };
