@@ -2,6 +2,7 @@
   "name": "login-oauth2-provider",
   "version": "0.0.1",
   "dependencies": {
+    "config": "^1.19.0",
     "connect-ensure-login": "0.1.x",
     "crypto": "0.0.3",
     "ejs": "0.7.x",

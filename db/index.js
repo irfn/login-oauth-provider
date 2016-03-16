@@ -1,6 +1,10 @@
 var Nohm = require('nohm').Nohm;
 var redis = require('redis');
-var redisClient = redis.createClient();
+var config = require('config');
+
+var redisConfig = config.get('redis');
+
+var redisClient = redis.createClient(redisConfig);
 
 Nohm.setPrefix('login-oauth-provider');
 
